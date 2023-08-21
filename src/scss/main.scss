@@ -1,0 +1,347 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "animate.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap");
+
+// 1. CUSTOM VARIABLES
+
+// Colors
+$custom-black: #111111;
+$custom-white: #ffffff;
+$custom-grey: #f5f0ec;
+$custom-brown: #dcc1ab;
+$custom-green: #1b5b31;
+
+// 2. CUSTOM CLASSES
+
+// Colors
+.col {
+  &-black {
+    color: $custom-black;
+    &-bg {
+      background-color: $custom-black;
+    }
+  }
+
+  &-white {
+    color: $custom-white;
+    &-bg {
+      background-color: $custom-white;
+    }
+  }
+
+  &-grey {
+    color: $custom-grey;
+    &-bg {
+      background-color: $custom-grey;
+    }
+  }
+
+  &-brown {
+    color: $custom-brown;
+    &-bg {
+      background-color: $custom-brown;
+    }
+  }
+
+  &-green {
+    color: $custom-green;
+    &-bg {
+      background-color: $custom-green;
+    }
+  }
+}
+
+// Fonts
+.fam {
+  &-int {
+    font-family: "Inter", sans-serif;
+    &-reg {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      &-ita {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+    }
+    &-med {
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      &-ita {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
+  }
+  &-mon {
+    font-family: "Montserrat", sans-serif;
+    &-reg {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      &-ita {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+    }
+    &-med {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      &-ita {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.fs {
+  &-12 {
+    font-size: 12px;
+  }
+  &-14 {
+    font-size: 14px;
+  }
+  &-28 {
+    font-size: 28px;
+  }
+  &-40 {
+    font-size: 40px;
+    &-sm {
+      font-size: 40px;
+      @media screen and (max-width: 540px) {
+        font-size: 28px;
+      }
+    }
+  }
+  &-48 {
+    font-size: 48px;
+    &-sm {
+      font-size: 48px;
+      @media screen and (max-width: 540px) {
+        font-size: 40px;
+      }
+    }
+  }
+  &-60 {
+    font-size: 60px;
+    &-sm {
+      font-size: 60px;
+      @media screen and (max-width: 540px) {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+// Masonry
+
+.grid-masonry {
+  &-sizer,
+  &-item {
+    width: calc((100% - 48px) / 3);
+    cursor: pointer;
+    /* Flashing */
+  }
+
+  &-item {
+    margin-bottom: 24px;
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -75%;
+      z-index: 2;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+      background: -webkit-linear-gradient(
+        left,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+      -webkit-transform: skewX(-25deg);
+      transform: skewX(-25deg);
+    }
+    &:hover::before {
+      -webkit-animation: shine 0.75s;
+      animation: shine 0.75s;
+    }
+    @-webkit-keyframes shine {
+      100% {
+        left: 125%;
+      }
+    }
+    @keyframes shine {
+      100% {
+        left: 125%;
+      }
+    }
+  }
+
+  .fading-layer {
+    background: linear-gradient(
+      to top,
+      rgba(red($custom-brown), green($custom-brown), blue($custom-brown), 1) 5%,
+      rgba(red($custom-brown), green($custom-brown), blue($custom-brown), 0) 20%
+    );
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .gallery-layer {
+    background-color: rgba(red($custom-black), green($custom-black), blue($custom-black), 0.8);
+    top: 0;
+    left: 0;
+    &[aria-hidden="false"] {
+      display: flex;
+      position: fixed;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+    &[aria-hidden="true"] {
+      display: none;
+    }
+    .gallery-container {
+      div:nth-child(1) {
+        height: 10%;
+      }
+      div:nth-child(2) {
+        height: 90%;
+      }
+      .carousel-indicators {
+        transform: translateY(100px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .grid-masonry {
+    &-sizer,
+    &-item {
+      width: calc((100% - 24px) / 2);
+    }
+  }
+}
+
+#intro-carousel,
+#about-carousel {
+  height: 720px !important;
+  img {
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #intro-carousel,
+  #about-carousel {
+    height: 552.4px !important;
+  }
+}
+
+// Neutrals
+
+.button-outline {
+  &-black {
+    pointer-events: auto;
+    border: 1px solid $custom-black;
+    background-color: transparent;
+    color: $custom-black;
+    &:hover {
+      background-color: $custom-black;
+      color: $custom-white;
+    }
+  }
+  &-white {
+    pointer-events: auto;
+    border: 1px solid $custom-white;
+    background-color: transparent;
+    color: $custom-white;
+    &:hover {
+      background-color: $custom-white;
+      color: $custom-black;
+    }
+  }
+  &-green {
+    pointer-events: auto;
+    border: 1px solid $custom-green;
+    background-color: transparent;
+    color: $custom-green;
+    &:hover {
+      background-color: $custom-green;
+      color: $custom-grey;
+    }
+  }
+}
+
+.underline-expanding::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.5px;
+  background: $custom-green;
+  transition: width 0.3s;
+}
+.underline-expanding:hover::after {
+  width: 0;
+  //transition: width .3s;
+}
+
+nav {
+  height: 72px;
+
+  .search-click {
+    border: none;
+    outline: none;
+    background-size: 22px;
+    background-position: 13px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 20px;
+    transition: all 0.5s;
+    box-shadow: 0 0 0 1px transparent;
+
+    &:focus {
+      width: 50vw;
+      padding-left: 40px;
+      box-shadow: 0 0 0 1px $custom-black;
+    }
+
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+
+    input {
+      background: transparent;
+      outline: none;
+      position: absolute;
+      width: 300px;
+      height: 40px;
+      left: 0;
+      padding: 10px;
+      border: none;
+      box-shadow: none;
+    }
+  }
+  #nav-menu,
+  #hamburger {
+    &[aria-hidden="false"] {
+      display: block;
+    }
+    &[aria-hidden="true"] {
+      display: none !important;
+    }
+  }
+}
