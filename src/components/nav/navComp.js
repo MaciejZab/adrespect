@@ -36,7 +36,7 @@ const nav = `<div class="container-fluid d-flex align-items-center justify-conte
     </ul>
   </div>
   <a
-    class="nav-link p-2 d-block d-sm-none"
+    class="p-2 d-block d-sm-none"
     href="#"
     id="hamburger"
     role="button"
@@ -81,7 +81,7 @@ const nav = `<div class="container-fluid d-flex align-items-center justify-conte
   </ul>
 
   <form
-    class="position-relative d-flex align-items-center ms-5"
+    class="position-relative d-flex align-items-center ms-3 ms-sm-5"
     action="/search"
     method="get"
     aria-expanded="false"

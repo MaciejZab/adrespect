@@ -1,9 +1,9 @@
-const nav = document.querySelector("nav");
-const searchForm = nav.querySelector("form");
-const hamburgerMenu = nav.querySelector("#hamburger");
-const standardMenu = nav.querySelector("#nav-menu");
-
 export const mountNavEvents = () => {
+  const nav = document.querySelector("nav");
+  const searchForm = nav?.querySelector(".search-click");
+  const hamburgerMenu = nav?.querySelector("#hamburger");
+  const standardMenu = nav?.querySelector("#nav-menu");
+  //
   searchForm?.addEventListener("click", () => {
     hamburgerMenu.setAttribute("aria-hidden", "true");
     standardMenu.setAttribute("aria-hidden", "true");
@@ -11,7 +11,7 @@ export const mountNavEvents = () => {
   });
 
   document.addEventListener("click", (event) => {
-    if (!searchForm.contains(event.target)) {
+    if (searchForm !== event.target) {
       setTimeout(() => {
         hamburgerMenu.setAttribute("aria-hidden", "false");
         standardMenu.setAttribute("aria-hidden", "false");
