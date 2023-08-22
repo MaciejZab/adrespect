@@ -1,3 +1,6 @@
+/**
+ * Mounts navigation event listeners for handling search form interactions and menu behavior.
+ */
 export const mountNavEvents = () => {
   const nav = document.querySelector("nav");
   const searchForm = nav?.querySelector(".search-click");

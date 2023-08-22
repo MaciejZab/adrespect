@@ -18,7 +18,6 @@ import { mountGallery } from "./src/js/gallery.js";
 
 // mount nav
 mountNav();
-mountNavEvents();
 
 //mount intro section
 mountIntroContent();
@@ -41,6 +40,8 @@ mountContact();
 
 // mount footer
 mountFooter();
+
+mountNavEvents();
 
 const inspirations = new Inspirations();
 

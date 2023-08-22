@@ -4,6 +4,12 @@ import { Inspiration } from "./inspirations.js";
 
 const gallery = document.querySelector("#gallery");
 
+/**
+ * Retrieves inspiration data based on the given label from the inspirations.json file.
+ *
+ * @param {string} label - The label used to filter inspirations.
+ * @returns {Promise<Array<Inspiration>>} - An array of Inspiration objects.
+ */
 const getInspirationData = async (label) => {
   try {
     const response = await fetch("src/assets/json/inspirations.json");
@@ -26,6 +32,12 @@ const getInspirationData = async (label) => {
   }
 };
 
+/**
+ * Builds an array of HTML elements for a carousel based on an Inspiration object's photos.
+ *
+ * @param {Inspiration} inspiration - An instance of the Inspiration class.
+ * @returns {Array<HTMLDivElement>} - An array of div elements representing carousel items.
+ */
 const NodesInspirationBuilder = (inspiration) => {
   const photos = inspiration.at(0).subPhotos.slice();
   photos.unshift(inspiration.at(0).mainPhoto);
@@ -92,6 +104,12 @@ const NodesInspirationBuilder = (inspiration) => {
   });
 };
 
+/**
+ * Builds an array of HTML button elements for carousel indicators.
+ *
+ * @param {Inspiration} inspiration - An instance of the Inspiration class.
+ * @returns {Array<HTMLButtonElement>} - An array of button elements representing carousel indicators.
+ */
 const NodesIndicatorsBuilder = (inspiration) => {
   const photos = inspiration.at(0).subPhotos.slice();
   photos.unshift(inspiration.at(0).mainPhoto);
@@ -109,6 +127,9 @@ const NodesIndicatorsBuilder = (inspiration) => {
   });
 };
 
+/**
+ * Mounts the gallery by adding event listeners to masonry items and handling carousel content updates.
+ */
 export const mountGallery = () => {
   // close gallery carousel
   const closeButton = document.querySelector('[aria-label="close-gallery"]');
