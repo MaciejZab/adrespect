@@ -1,5 +1,7 @@
+// styles
 import "./src/scss/main.scss";
 import "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+// components
 import { mountNav } from "./src/components/nav/navComp.js";
 import { mountIntroContent } from "./src/components/intro/introContentComp.js";
 import { mountIntroCarousel } from "./src/components/intro/introCarouselComp.js";
@@ -11,6 +13,7 @@ import { mountFooter } from "./src/components/footer/footerComp.js";
 import { mountRealizationsFade } from "./src/components/realizations/realizationsFadeComp.js";
 import { mountRealizationsGallery } from "./src/components/realizations/realizationsGalleryComp.js";
 import { mountContact } from "./src/components/contact/contactComp.js";
+//
 import { mountNavEvents } from "./src/js/nav.js";
 import { Inspirations } from "./src/js/inspirations.js";
 import { MasonryBuilder } from "./src/js/masonry.js";
@@ -18,6 +21,7 @@ import { mountGallery } from "./src/js/gallery.js";
 
 // mount nav
 mountNav();
+mountNavEvents();
 
 //mount intro section
 mountIntroContent();
@@ -40,8 +44,6 @@ mountContact();
 
 // mount footer
 mountFooter();
-
-mountNavEvents();
 
 const inspirations = new Inspirations();
 
