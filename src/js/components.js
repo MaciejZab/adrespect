@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Represents a dynamic component that can be fetched and mounted.
  */
