@@ -42,10 +42,10 @@ const NodesInspirationBuilder = (inspiration) => {
   const photos = inspiration.at(0).subPhotos.slice();
   photos.unshift(inspiration.at(0).mainPhoto);
   return photos.map((photo, index) => {
-    const div = document.createElement("div");
-    div.classList.add("carousel-item", "h-100");
+    const figure = document.createElement("figure");
+    figure.classList.add("carousel-item", "h-100");
     if (index === 0) {
-      div.classList.add("active");
+      figure.classList.add("active");
     }
 
     const img = document.createElement("img");
@@ -99,8 +99,8 @@ const NodesInspirationBuilder = (inspiration) => {
       img.style.height = `${desiredHeight}px`;
     };
 
-    div.appendChild(img);
-    return div;
+    figure.appendChild(img);
+    return figure;
   });
 };
 

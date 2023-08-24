@@ -43,12 +43,14 @@ const NodeInspirationsBuilder = (inspirations) => {
   const iterable = inspirations.array || inspirations;
 
   return iterable.map((inspiration) => {
+    const figure = document.createElement("figure");
     const photo = document.createElement("img");
     photo.classList.add("grid-masonry-item");
     photo.src = `./src/assets/imgs/inspirations/${inspiration.path}/${inspiration.mainPhoto}`;
     photo.setAttribute("aria-label", inspiration.path);
+    figure.appendChild(photo);
 
-    return photo;
+    return figure;
   });
 };
 

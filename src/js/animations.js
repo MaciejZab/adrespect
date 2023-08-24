@@ -21,6 +21,8 @@ class Animation {
    */
   applyAnimation() {
     const element = document.querySelector(this.componentHook);
+
+    element.style.opacity = 1;
     element.classList.add(...this.animationEnum.split(" "));
 
     return this;
@@ -32,6 +34,7 @@ class Animation {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          element.style.opacity = 0;
           if (entry.isIntersecting) {
             setTimeout(() => {
               this.applyAnimation(); // Apply animation when element is in view
@@ -42,7 +45,7 @@ class Animation {
         });
       },
       {
-        threshold: 1,
+        threshold: 0,
       }
     );
 
