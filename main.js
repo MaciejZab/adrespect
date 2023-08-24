@@ -1,7 +1,6 @@
 //
 import "./src/scss/main.scss";
 import "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import "animate.css";
 //
 import { mountComponents } from "./src/js/components.js";
 import { mountAnimations } from "./src/js/animations.js";
